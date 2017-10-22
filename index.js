@@ -57,8 +57,8 @@ app.post('/webhook', (req, res) => {
 
       // Gets the message. entry.messaging is an array, but 
       // will only ever contain one message, so we get index 0
-      let webhookEvent = entry.messaging[0];
-      console.log(webhookEvent);
+      let webhook_event = entry.messaging[0];
+      console.log(webhook_event);
 
 
       // Get the sender PSID
@@ -91,5 +91,5 @@ https.createServer({
   cert: fs.readFileSync('/etc/letsencrypt/live/message.vitestore.com/fullchain.pem'),
   passphrase: 'abcde'
 }, app).listen(app.get('port'), function () {
-  console.log('Example app listening on port' + app.get('port'));
+  console.log('Example app listening on port ' + app.get('port'));
 });
