@@ -1,0 +1,19 @@
+{
+  "name": "messagebot-print",
+  "version": "1.0.0",
+  "description": "facebook message bot for printing service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandon-zeng/messagebot-print.git"
+  },
+  "author": "Brandon Z",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brandon-zeng/messagebot-print/issues"
+  },
+  "homepage": "https://github.com/brandon-zeng/messagebot-print#readme"
+}
