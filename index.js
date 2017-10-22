@@ -6,6 +6,8 @@ const
   https = require('https'),
   express = require('express'),
   bodyParser = require('body-parser'),
+  chatApi = require('./api/chat')
+  
   app = express().use(bodyParser.json()); // creates express http server
 
 app.set('port', (process.env.PORT || 5555));
@@ -58,6 +60,19 @@ app.post('/webhook', (req, res) => {
       // will only ever contain one message, so we get index 0
       let webhookEvent = entry.messaging[0];
       console.log(webhookEvent);
+
+
+      // Get the sender PSID
+      let sender_psid = webhook_event.sender.id;
+      console.log('Sender PSID: ' + sender_psid);
+
+      // Check if the event is a message or postback and
+      // pass the event to the appropriate handler function
+      if (webhook_event.message) {
+        chatApi.handleMessage(sender_psid, webhook_event.message);
+      } else if (webhook_event.postback) {
+        chatApi.handlePostback(sender_psid, webhook_event.postback);
+      }
     });
 
     // Returns a '200 OK' response to all requests
