@@ -6,8 +6,7 @@ const
   https = require('https'),
   express = require('express'),
   bodyParser = require('body-parser'),
-  chatApi = require('./api/chat')
-  
+  chatApi = require('./api/chat'),  
   app = express().use(bodyParser.json()); // creates express http server
 
 app.set('port', (process.env.PORT || 5555));
