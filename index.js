@@ -73,8 +73,8 @@ app.post('/webhook', (req, res) => {
 // Sets server port and logs message on success
 // app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 https.createServer({
-  key: fs.readFileSync('auth/key.pem'),
-  cert: fs.readFileSync('auth/cert.pem'),
+  key: fs.readFileSync('/etc/letsencrypt/live/message.vitestore.com/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/message.vitestore.com/fullchain.pem'),
   passphrase: 'abcde'
 }, app).listen(app.get('port'), function () {
   console.log('Example app listening on port' + app.get('port'));
